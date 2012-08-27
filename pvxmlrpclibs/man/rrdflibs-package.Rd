@@ -10,7 +10,6 @@ Package with the PathVisio XML-RPC libraries, mostly aimed for use
 in the pvxmlrpc package. Using the rjava package, the Jena libraries
 can also be used directly.
 }
-}
 \author{
 Egon Willighagen
 

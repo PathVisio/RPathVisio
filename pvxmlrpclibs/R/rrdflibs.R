@@ -23,7 +23,7 @@ require(rJava, quietly=TRUE)
         Sys.setenv("DYLD_LIBRARY_PATH"=sub("/usr/X11R6/lib","",dlp))
     }
     libJars = c(
-        "arq-2.8.7.jar"		
+        "PathVisioRPC.jar"
     )
     .jpackage(pkg, jars=libJars)
 }
