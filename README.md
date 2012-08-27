@@ -1,4 +1,4 @@
-R package for PathVisio XML-RCP
+R package for PathVisio XML-RPC
 ===============================
 
 
