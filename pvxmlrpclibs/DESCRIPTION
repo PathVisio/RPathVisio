@@ -1,0 +1,11 @@
+Package: pvxmlrpc
+Type: Package
+Title: pvxmlrpc - package with the libraries needed for PathVisio XML-RPC
+Version: 1.0.0
+Date: 2012-08-27
+Author: Egon Willighagen <egon.willighagen@gmail.com>
+Maintainer: Egon Willighagen <egon.willighagen@gmail.com>
+Depends: R (>= 2.0.0), rJava
+Description: Package to create, edit, and visualize GPMML pathways with PathVisio.
+License: AGPL-3
+LazyLoad: yes
