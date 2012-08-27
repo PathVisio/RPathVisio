@@ -17,3 +17,4 @@
 
 require(rJava, quietly=TRUE)
 require(pvxmlrpclibs, quietly=TRUE)
+require(XMLRPC, quietly=TRUE)
