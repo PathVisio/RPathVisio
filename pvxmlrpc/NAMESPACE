@@ -7,5 +7,6 @@ export(
  addLine,
  addMetabolite,
  addProtein,
+ addGeneProduct,
  addPathwayNode
 )
