@@ -1,3 +1,11 @@
 import("rJava")
 import("pvxmlrpclibs")
-export(pathvisioServer,createPathway,addDataNode,addLine,addMetabolite,addProtein,addPathwayNode)
+export(
+ pathvisioServer,
+ createPathway,
+ addDataNode,
+ addLine,
+ addMetabolite,
+ addProtein,
+ addPathwayNode
+)
