@@ -1,4 +1,4 @@
-calculatePathwayStats <- function(pathdir, gexname, dbname, criteria, outputdir)  host="localhost", port=9000) {
+calculatePathwayStats <- function(pathdir, gexname, dbname, criteria, outputdir, host="localhost", port=9000) {
   if (missing(pathdir)) stop("You must provide a folder containing pathways.");
   if (missing(gexname)) stop("You must provide the name of the gexfile to use.");
   if (missing(dbname)) stop("You must provide the name of the database to use for mapping the data.");
