@@ -5,9 +5,9 @@ export(
  createPathway,
  addDataNode,
  addLine,
- addMetabolite,
- addProtein,
- addGeneProduct,
- addRNA,
+ addMetaboliteNode,
+ addProteinNode,
+ addGeneProductNode,
+ addRNANode,
  addPathwayNode
 )
