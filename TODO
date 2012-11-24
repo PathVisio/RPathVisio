@@ -1,2 +1,4 @@
 - add stuff to pvxmlrpclibs to indicate source, license, etc for the PathVisioRPC.jar
 - fix calling the main method to boot the XMLRPC server
+- upload the new jar
+- add author info to the README
