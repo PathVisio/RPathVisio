@@ -12,14 +12,10 @@ Directly call functions of PathVisio to create and edit biological pathways, vis
 This package wraps the PathVisio XML-RPC code with a R specific API.
 }
 \author{
-Anwesha Dutta
-Egon Willighagen
-Christ Leemans
+Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl> \\
+Egon Willighagen <egon.willighagen@gmail.com> \\
+Christ Leemans <C.Leemans@student.maastrichtuniversity.nl>
 }
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-Egon Willighagen <egon.willighagen@gmail.com>
-Christ Leemans<C.Leemans@student.maastrichtuniversity.nl>
 }
 \keyword{ package }
 \keyword{ PathVisio }
