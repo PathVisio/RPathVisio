@@ -14,7 +14,7 @@
 \section{Introduction}
 
 This tutorial will talk you try the basic RPathVisio commands. RPathVisio is a package that allows
-you to interact with PathVisio from within R. It uses XML-RPC as communication layer in this process
+you to interact with PathVisio \cite{VanIersel2008} from within R. It uses XML-RPC as communication layer in this process
 and requires a running PathVisio-RPC server.
 
 \section{Running the server}
@@ -26,6 +26,24 @@ library(pvxmlrpc)
 port = pathvisioServer()
 cat(paste("Port:", port, "\n"))
 @
+
+\section{XML-RPC}
+
+This package uses the XML-RPC extension of PathVisio to interact with it. Therefore, you can use
+the normal XML-RPC code. However, we decided to provide a number of convenience methods to hide
+the more technical aspects of this communication, and make some reasonable assumptions for default
+values. Therefore, the following two commands are equivalent.
+
+<<>>=
+pathway = createPathway("Test pathway", author="Jan Janssen")
+pathway = xml.rpc(
+  "http://localhost:9000/",
+  "PathwayHandler.createPathway",
+  "Jan Janssen", "Test pathway"
+)
+@
+
+You decide what approach you prefer to use.
 
 \subsection{Server and port}
 
@@ -42,7 +60,9 @@ so that you do not have to give them explicitly. If you run your PathVisio-RPC s
 machine, or if you use a non-default port, you can use the \textit{host} and \textit{port} parameters
 available for all methods.
 
-\section{Creating pathways}
+\section{First Steps}
+
+\subsection{Creating pathways}
 
 The pathway is the central object in PathVisio. Any thing, metabolite, protein, gene, etc, are
 contained in a pathway. Therefore, the first thing to do is create a pathway. This can be done with:
@@ -71,6 +91,35 @@ n1 = addDataNode(pathway, "SomeGene", "GeneProduct")
 Possible types are \textit{Metabolite}, \textit{Protein}, \textit{GeneProduct}, \textit{RNA}, and \textit{Pathway}.
 The last one is for refering to related pathways.
 
+Making connections between nodes define the paths of the pathway, and is done with the
+\textit{addLine} method.
+
+<<>>=
+pathway = "Butyrate"
+createPathway(pathway)
+addDataNode(pathway, "Acetoacetate", "Metabolite")
+addDataNode(pathway, "3-Hydroxy-butyrate", "Metabolite")
+addLine(pathway, "A->B", "Acetoacetate", "3-Hydroxy-butyrate")
+@
+
+\subsection{Convenience methods}
+
+To further simply the R code to create pathways, we have added methods specific for the
+various data node types. For example, we can also add a metabolite with:
+
+<<>>=
+addMetaboliteNode(pathway, "Acetoacetate")
+@
+
+\section{Creating graphics}
+
+
+\section{Mapping experimental data}
+
+\section{MIM Interactions}
+
+\bibliographystyle{abbrv}
+\bibliography{tutorial}
 
 
 \end{document}
