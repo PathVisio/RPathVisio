@@ -7,8 +7,8 @@ PathVisio XML-RPC libraries.
 }
 \description{
 Package with the PathVisio XML-RPC libraries, mostly aimed for use
-in the pvxmlrpc package. Using the rjava package, the Jena libraries
-can also be used directly.
+in the pvxmlrpc package. The PathVisio-RPC library packaged in this
+package are written by Anwesha Dutta, and are licensed XXXXXX.
 }
 \author{
 Egon Willighagen

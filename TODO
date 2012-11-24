@@ -2,3 +2,4 @@
 - fix calling the main method to boot the XMLRPC server
 - upload the new jar
 - add author info to the README
+- add licence info for the new jar into man/package-foo.Rd
