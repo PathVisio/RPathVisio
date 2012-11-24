@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\title{A RPathVisio Tutorial}
+\author{
+  Egon Willighagen
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+This tutorial will talk you try the basic RPathVisio commands. RPathVisio is a package that allows
+you to interact with PathVisio from within R. It uses XML-RPC as communication layer in this process
+and requires a running PathVisio-RPC server.
+
+\section{Running the server}
+
+Running the server on the default port can be performed from within R:
+
+<<>>=
+library(pvxmlrpc)
+port = pathvisioServer()
+cat(paste("Port:", port, "\n"))
+@
+
+\subsection{Server and port}
+
+This requires the port it runs on to be free. Need you use a different port,
+than you can use the \emph{port} parameter:
+
+<<>>=
+port = pathvisioServer(port=8080)
+cat(paste("Port:", port, "\n"))
+@
+
+The advantage of using the default port, is that the other methods will accept those default
+so that you do not have to give them explicitly. If you run your PathVisio-RPC server on a different
+machine, or if you use a non-default port, you can use the \textit{host} and \textit{port} parameters
+available for all methods.
+
+\section{Creating pathways}
+
+The pathway is the central object in PathVisio. Any thing, metabolite, protein, gene, etc, are
+contained in a pathway. Therefore, the first thing to do is create a pathway. This can be done with:
+
+<<>>=
+pathway = createPathway("Test pathway")
+@
+
+Optionally, you can provide author information:
+
+<<>>=
+pathway = createPathway("Test pathway", author="Jan Janssen")
+@
+
+Note that these pathways are stored as GPML files in the working directory.
+
+\subsection{Adding content}
+
+Next thing is to add content to the pathway. The central piece of content in a pathway is a data node,
+which must have a name and a type:
+
+<<>>=
+n1 = addDataNode(pathway, "SomeGene", "GeneProduct")
+@
+
+Possible types are \textit{Metabolite}, \textit{Protein}, \textit{GeneProduct}, \textit{RNA}, and \textit{Pathway}.
+The last one is for refering to related pathways.
+
+
+
+\end{document}
