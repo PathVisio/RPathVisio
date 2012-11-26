@@ -15,10 +15,11 @@ This package wraps the PathVisio XML-RPC code with a R specific API.
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
+}
 
 Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
+Egon Willighagen <egon.willighagen@gmail.com>
+Christ Leemans<C.Leemans@student.maastrichtuniversity.nl>
 }
 \keyword{ package }
 \keyword{ PathVisio }
