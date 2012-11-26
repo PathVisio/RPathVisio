@@ -1,4 +1,7 @@
-# Copyright (C) 2012  Egon Willighagen <egon.willighagen@gmail.com>
+# Copyright (C) 2012  
+#Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
+#Egon Willighagen <egon.willighagen@gmail.com>
+#Christ Leemans<C.Leemans@student.maastrichtuniversity.nl>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -13,7 +16,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-.packageName <- "pvxmlrpc"
+.packageName <- "RPathVisio"
 
 #require(rJava, quietly=TRUE)
 #require(pvxmlrpclibs, quietly=TRUE)
