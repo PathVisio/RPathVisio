@@ -5,5 +5,5 @@ addDataNode <- function(pathway, name, type, host="localhost", port=9000) {
   if (match(type, c("Metabolite","Protein","GeneProduct","RNA","Pathway"), 0) == 0) stop("Unknown type of node");
 
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathwayHandler.addDataNode", pathway, name, type)
+  xml.rpc(hostUrl, "PathVisio.addDataNode", pathway, name, type)
 }
