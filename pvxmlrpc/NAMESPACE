@@ -9,5 +9,13 @@ export(
  addProteinNode,
  addGeneProductNode,
  addRNANode,
- addPathwayNode
+ addPathwayNode,
+ exportPathway,
+ exportPathwayasPdf,
+ exportPathwayasPng,
+ exportPathwayasSvg,
+ createVisualization,
+ visualizeData,
+ calculatePathwayStats,
+ getParticipants
 )
