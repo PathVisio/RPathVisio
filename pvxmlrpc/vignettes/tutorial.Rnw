@@ -38,8 +38,8 @@ values. Therefore, the following two commands are equivalent.
 pathway = createPathway("Test pathway", author="Jan Janssen")
 pathway = xml.rpc(
   "http://localhost:9000/",
-  "PathwayHandler.createPathway",
-  "Jan Janssen", "Test pathway"
+  "PathVisio.createPathway",
+  "Jan Janssen", "Test pathway", "Homo Sapiens"
 )
 @
 
