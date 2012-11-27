@@ -17,5 +17,6 @@ export(
  createVisualization,
  visualizeData,
  calculatePathwayStats,
- getParticipants
+ getParticipants,
+ plotWikipathway
 )
