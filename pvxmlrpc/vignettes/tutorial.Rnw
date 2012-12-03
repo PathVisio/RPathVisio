@@ -113,6 +113,22 @@ addMetaboliteNode(pathway, "Acetoacetate")
 
 \section{Creating graphics}
 
+But of course it is all about the looks. For example, we can plot pathways from Wikipathways \cite{Pico2008} in R with:
+
+<<wp2366,include=false,width=6,height=6>>=
+plotWikipathway("WP2366")
+@
+
+The result is shown in Figure \ref{fig:wp2366}.
+
+\begin{figure}[ht]
+\centering
+<<fig=true,echo=FALSE>>=
+<<wp2366>>
+@
+\caption{WikiPathways WP2366.}
+\label{fig:wp2366}
+\end{figure}
 
 \section{Mapping experimental data}
 
