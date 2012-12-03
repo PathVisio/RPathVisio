@@ -19,3 +19,6 @@ To check and build a package run:
     R CMD check pvxmlrpc
     R CMD build pvxmlrpc
 
+To create the vignette:
+
+    rm -f ./pvxmlrpc/inst/doc/tutorial.pdf; R CMD build pvxmlrpc; tar xvf pvxmlrpc_1.0.1.tar.gz pvxmlrpc/inst/doc/tutorial.pdf
