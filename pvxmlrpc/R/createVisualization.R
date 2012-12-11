@@ -9,7 +9,7 @@ createVisualization <- function(gexname, gsample, gcolors, gvalues, rsample, rco
 
  
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathwayHandler.createVisualization", gexfile, gsample, gcolors, gvalues, rsample, rcolors, rexprs)
+  xml.rpc(hostUrl, "PathwayHandler.createVisualization", gexname, gsample, gcolors, gvalues, rsample, rcolors, rexprs)
 }
 
 
