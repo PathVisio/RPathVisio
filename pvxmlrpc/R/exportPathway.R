@@ -4,5 +4,5 @@ exportPathway <- function(pathway, type, host="localhost", port=9000) {
   if (match(type, c("png","svg","pdf"), 0) == 0) stop("This type of export is unavailable");
 
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathwayHandler.exportPathway", name, type)
+  xml.rpc(hostUrl, "PathwayHandler.exportPathway", pathway, type)
 }
