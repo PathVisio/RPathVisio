@@ -1,6 +1,3 @@
-exportPathwayasPng <- function(pathway, host="localhost", port=9000, type = "png") {
-  if (missing(pathway)) stop("You must provide a pathway name.");
- 
-  hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathwayHandler.exportPathway", pathway, type)
+exportPathwayasPng <- function(pathway,outputDir, host="localhost", port=9000) {
+    exportPathway(pathway,"png",outputDir,host,port)
 }
