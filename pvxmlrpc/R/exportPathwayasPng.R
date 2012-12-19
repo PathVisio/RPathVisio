@@ -1,4 +1,4 @@
-exportPathwayasPng <- function(pathway, host="localhost", port=9000, type = "png") {
+exportPathwayasPng <- function(pathway, host="localhost", port=9000) {
   if (missing(pathway)) stop("You must provide a pathway name.");
  
   hostUrl = paste("http://", host, ":", port, "/", sep="")
