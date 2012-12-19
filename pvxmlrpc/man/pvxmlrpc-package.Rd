@@ -16,7 +16,6 @@ Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl> \\
 Egon Willighagen <egon.willighagen@gmail.com> \\
 Christ Leemans <C.Leemans@student.maastrichtuniversity.nl>
 }
-}
 \keyword{ package }
 \keyword{ PathVisio }
 \keyword{ XML-RPC }
