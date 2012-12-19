@@ -1,6 +1,4 @@
-getParticipatingMetabolites <- function(pathway, host="localhost", port=9000) {
-  if (missing(pathway)) stop("You must provide a pathway name.");
- 
-  hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathwayHandler.exportPathway", name, "Metabolite")
+getParticipatingMetabolites <- function(pathway,outputDir, host="localhost", port=9000) {
+  
+ getParticipants(pathway,"Metabolite",outputDir,host,port)
 }

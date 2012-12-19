@@ -18,5 +18,12 @@ export(
  visualizeData,
  calculatePathwayStats,
  getParticipants,
+ getParticipatingGeneProducts,
+ getParticipatingMetabolites,
+ getParticipatingPathways,
+ getParticipatingProteins,
+ getParticipatingReactions,
+ getParticipatingRNAs,
+ getParticipatingUnknowns,
  plotWikipathway
 )
