@@ -1,6 +1,3 @@
-exportPathwayasPdf <- function(pathway, host="localhost", port=9000, type = "pdf") {
-  if (missing(pathway)) stop("You must provide a pathway name.");
- 
-  hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathwayHandler.exportPathway", pathway, type)
+exportPathwayasPdf <- function(pathway,outputDir, host="localhost", port=9000) {
+  exportPathway(pathway,"pdf",outputDir,host,port)
 }
