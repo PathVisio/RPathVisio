@@ -10,6 +10,7 @@ export(
  addGeneProductNode,
  addRNANode,
  addPathwayNode,
+ addMim,
  exportPathway,
  exportPathwayasPdf,
  exportPathwayasPng,
