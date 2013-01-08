@@ -1,3 +1,3 @@
-exportPathwayasPng <- function(pathway,outputDir, host="localhost", port=9000) {
-    exportPathway(pathway,"png",outputDir,host,port)
+exportPathwayasPng <- function(pathway, host="localhost", port=9000, path=NA, outputdir=NA) {
+    exportPathway(pathway,"png",host,port,path,outputdir)
 }

@@ -1,4 +1,4 @@
-getParticipatingProteins <- function(pathway,outputDir, host="localhost", port=9000) {
+getParticipatingProteins <- function(pathway,host="localhost", port=9000,path=NA) {
   
- getParticipants(pathway,"Protein",outputDir,host,port)
+ getParticipants(pathway,"Protein",host,port,path)
 }

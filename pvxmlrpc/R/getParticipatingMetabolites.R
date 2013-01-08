@@ -1,4 +1,4 @@
-getParticipatingMetabolites <- function(pathway,outputDir, host="localhost", port=9000) {
+getParticipatingMetabolites <- function(pathway,outputDir, host="localhost", port=9000,path=NA) {
   
- getParticipants(pathway,"Metabolite",outputDir,host,port)
+ getParticipants(pathway,"Metabolite",host,port,path)
 }

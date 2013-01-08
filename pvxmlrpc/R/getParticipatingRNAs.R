@@ -1,4 +1,4 @@
-getParticipatingRNAs <- function(pathway,outputDir, host="localhost", port=9000) {
+getParticipatingRNAs <- function(pathway,host="localhost", port=9000, path=NA) {
   
- getParticipants(pathway,"RNA",outputDir,host,port)
+ getParticipants(pathway,"RNA",host,port,path)
 }
