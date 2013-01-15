@@ -17,6 +17,5 @@ addMim <- function(pathway, name, startNode, endNode, type, lineID=" ", linesour
   
   endAnnotation = paste("mim-",type,sep="")
 
-
   addLine(pathway, name, startNode, endNode, "", endAnnotation, lineID, linesource, host, port, path)
 }

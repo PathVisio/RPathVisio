@@ -7,6 +7,5 @@ addDataNode <- function(pathway, name, type, host="localhost", port=9000, author
 
   pwyPath = paste(path,"/",pathway,".gpml",sep="")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-
   xml.rpc(hostUrl, "PathVisio.addDataNode", pwyPath, name, type, author, organism, path)
 }

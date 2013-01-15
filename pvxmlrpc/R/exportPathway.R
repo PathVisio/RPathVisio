@@ -7,6 +7,5 @@ exportPathway <- function(pathway, type, host="localhost", port=9000, path=NA, o
 
   pwyPath = paste(path,"/",pathway,".gpml",sep="")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-
   xml.rpc(hostUrl, "PathVisio.exportPathway", pwyPath, type, outputdir)
 }

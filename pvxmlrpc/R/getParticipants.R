@@ -5,6 +5,5 @@ getParticipants <- function(pathway, type, host="localhost", port=9000, path=NA)
 
   pwyPath = paste(path, "/", pathway, ".gpml", sep="")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  
   xml.rpc(hostUrl, "PathVisio.getPathwayParticipants", pwyPath, type, path)
 }
