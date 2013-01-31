@@ -27,5 +27,6 @@ export(
  getParticipatingRNAs,
  getParticipatingUnknowns,
  plotWikipathway,
- removeByGraphId
+ removeByGraphId,
+ getGraphIDs
 )
