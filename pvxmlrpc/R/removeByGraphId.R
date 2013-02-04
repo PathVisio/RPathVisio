@@ -5,5 +5,5 @@ removeByGraphId <- function(pathway, graphId, host="localhost", port=9000, path=
  
  pwyPath = paste(path,"/", pathway, ".gpml", sep="")
  hostUrl = paste("http://", host, ":", port,"/", sep="")
- xml.rpc(hostUrl, "PathVisio.removeElementById", pwyPath, graphId, path)
+ xml.rpc(hostUrl, "PathVisio.removeElementById", pwyPath, graphId)
 }
