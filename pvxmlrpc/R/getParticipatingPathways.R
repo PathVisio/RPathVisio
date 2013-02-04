@@ -1,4 +1,4 @@
-getParticipatingPathways <- function(pathway,outputDir, host="localhost", port=9000) {
+getParticipatingPathways <- function(pathway, host="localhost", port=9000,path=NA) {
   
- getParticipants(pathway,"Pathway",outputDir,host,port)
+ getParticipants(pathway,"Pathway",host,port,path)
 }
