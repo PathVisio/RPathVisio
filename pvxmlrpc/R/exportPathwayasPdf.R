@@ -1,3 +1,3 @@
-exportPathwayasPdf <- function(pathway,outputDir, host="localhost", port=9000) {
-  exportPathway(pathway,"pdf",outputDir,host,port)
+exportPathwayasPdf <- function(pathway, host="localhost", port=9000, path=NA, outputdir=NA) {
+  exportPathway(pathway,"pdf",host,port,path,outputdir)
 }

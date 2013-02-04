@@ -1,6 +1,4 @@
-addMetaboliteNode <- function(pathway, name, host="localhost", port=9000) {
-  if (missing(pathway)) stop("You must provide a pathway name.");
-  if (missing(name)) stop("You must provide a metabolite name.");
+addMetaboliteNode <- function(pathway, name, host="localhost", port=9000, author="Anonymous", organism="", path=NA) {
 
-  addDataNode(pathway, name, "Metabolite", host, port)
+  addDataNode(pathway, name, "Metabolite", host, port, author, organism, path)
 }

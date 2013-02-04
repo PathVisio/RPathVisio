@@ -1,4 +1,4 @@
-getParticipatingReactions <- function(pathway,outputDir, host="localhost", port=9000) {
+getParticipatingReactions <- function(pathway, host="localhost", port=9000,path=NA) {
   
- getParticipants(pathway,"Line",outputDir,host,port)
+ getParticipants(pathway,"Line",host,path)
 }

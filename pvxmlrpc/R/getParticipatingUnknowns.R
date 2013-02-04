@@ -1,4 +1,4 @@
-getParticipatingUnknowns <- function(pathway,outputDir, host="localhost", port=9000) {
+getParticipatingUnknowns <- function(pathway, host="localhost", port=9000, path=NA) {
   
- getParticipants(pathway,"Unknown",outputDir,host,port)
+ getParticipants(pathway,"Unknown",host,port,path)
 }
