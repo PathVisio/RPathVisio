@@ -1,4 +1,4 @@
-addGeneProductNode <- function(pathway, name, host="localhost", port=9000, author="Anonymous", organism="", path=NA) { 
+addGeneProductNode <- function(pathway, name, host="localhost", port=9000, ref="", comment="", commentSource="", dataId="", dataSource="", path=NA) { 
 
-  addDataNode(pathway, name, "GeneProduct", host, port, author, organism, path)
+  addDataNode(pathway, name, "GeneProduct", host, port, ref, comment, commentSource, dataId, dataSource, path)
 }

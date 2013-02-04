@@ -1,4 +1,4 @@
-addMim <- function(pathway, name, startNode, endNode, type, lineID=" ", linesource="", host="localhost", port=9000, path=NA) {
+addMim <- function(pathway, name, startNode, endNode, type, host="localhost", port=9000, path=NA) {
 
   if (match(type, c(
     "catalysis",
@@ -17,5 +17,5 @@ addMim <- function(pathway, name, startNode, endNode, type, lineID=" ", linesour
   
   endAnnotation = paste("mim-",type,sep="")
 
-  addLine(pathway, name, startNode, endNode, "", endAnnotation, lineID, linesource, host, port, path)
+  addLine(pathway, name, startNode, endNode, "", endAnnotation, host, port, path)
 }
