@@ -7,5 +7,7 @@ addLine <- function(pathway, name, startNode, endNode, startAnnotation="", endAn
 
   pwyPath = paste(path,"/",pathway,".gpml",sep="")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathVisio.addLine", pwyPath, name, startNode, endNode, startAnnotation, endAnnotation)
+  line = xml.rpc(hostUrl, "PathVisio.addLine", pwyPath, name, startNode, endNode, startAnnotation, endAnnotation)
+  graphId = unlist(strsplit(line," "))[4]
+  list(pathway=pathway,name=name,graphId=graphId,startNode=startNode,endNode=endNode,startAnnotation=startAnnotation,path=path)
 }
