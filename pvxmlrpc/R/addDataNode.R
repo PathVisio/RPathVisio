@@ -1,4 +1,4 @@
-addDataNode <- function(pathway, name, type, host="localhost", port=9000, author="Anonymous", organism="", path=NA) {
+addDataNode <- function(pathway, name, type, host="localhost", port=9000, ref="", comment="", dataId="", dataSource="", path=NA) {
   if (missing(pathway)) stop("You must provide a pathway name.");
   if (missing(name)) stop("You must provide a node name.");
   if (missing(type)) stop("You must provide a node type.");
@@ -7,5 +7,5 @@ addDataNode <- function(pathway, name, type, host="localhost", port=9000, author
 
   pwyPath = paste(path,"/",pathway,".gpml",sep="")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathVisio.addDataNode", pwyPath, name, type, author, organism)
+  xml.rpc(hostUrl, "PathVisio.addDataNode", pwyPath, name, type, ref, comment, "", dataId, dataSource)
 }
