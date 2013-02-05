@@ -4,4 +4,5 @@ createPathway <- function(name, host="localhost", port=9000, author="Anonymous",
 
   hostUrl = paste("http://", host, ":", port, "/", sep="")
   xml.rpc(hostUrl, "PathVisio.createPathway", name, author, organism, path)
+  list(name=name, author=author, organism=organism, path=path)
 }

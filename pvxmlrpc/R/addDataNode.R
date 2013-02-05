@@ -7,5 +7,8 @@ addDataNode <- function(pathway, name, type, host="localhost", port=9000, ref=""
 
   pwyPath = paste(path,"/",pathway,".gpml",sep="")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathVisio.addDataNode", pwyPath, name, type, ref, comment, "", dataId, dataSource)
+  line <- xml.rpc(hostUrl, "PathVisio.addDataNode", pwyPath, name, type, ref, comment, commentSource, dataId, dataSource)
+  graphId = unlist(strsplit(line," "))[4]
+  list(pathway=pathway, name=name, graphId=graphId, ref=ref, comment=comment, commentSource=commentSource, dataId=dataId, dataSource=dataSource, path=path)
+
 }
