@@ -7,7 +7,7 @@ Create Pathway function
 Function for creating a new pathway file
 }
 \usage{
-createPathway{name,host="localhost",port=9000,author="Anonymous",organism="",path=NA}
+createPathway(name,host="localhost",port=9000,author="Anonymous",organism="",path=NA)
 }
 \arguments{
  \item{name}{name the pathway}
