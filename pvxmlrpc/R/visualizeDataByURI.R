@@ -10,5 +10,5 @@ visualizeDataByURI <- function(uri, gexname, dbname, host="localhost", port=9000
   gex = paste(gexpath,"/",gexname,sep="")
   db = paste(dbpath,"/",dbname,sep="")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathVisio.visualizeData", uri, gex, db, outputdir)
+  xml.rpc(hostUrl, "PathVisio.visualizeDataByURI", uri, gex, db, outputdir)
 }
