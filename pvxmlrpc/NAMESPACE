@@ -16,6 +16,8 @@ export(
  exportPathwayasPng,
  exportPathwayasSvg,
  createVisualization,
+ createVisualizationGradient,
+ createVisualizationRule,
  visualizeData,
  visualizeDataByURI,
  calculatePathwayStats,
