@@ -1,5 +1,6 @@
 \name{visualizeData}
 \alias{visualizeData}
+\alias{visualizeDataByURI}
 \title{
 Visualize Data functions
 }
@@ -7,10 +8,12 @@ Visualize Data functions
 Functions for adding visualizations on data nodes of a pathway
 }
 \usage{
-visualizeData(pathway, gexname, dbname, host="localhost", port=9000, pwypath=NA, gexpath=NA, dbpath=NA, outputdir="")
+visualizeData(pathway, gexname, dbname, host="localhost", port=9000, pwypath=NA, gexpath=NA, dbpath=NA, outputdir=NA)
+visualizeDataByURI(uri, gexname, dbname, host="localhost", port=9000, pwypath=NA, gexpath=NA, dbpath=NA, outputdir=NA)
 }
 \arguments{
  \item{pathway}{name of the pathway on which to visualize data}
+ \item{uri}{WikiPathways ID of the pathway on which to visualize data}
  \item{gexname}{name of the gex file, which has the data to be visualized(if there's no "." in the name, ".pgex"  is used as file extension)}
  \item{dbname}{name of the database file (if there's no "." in the name, ".bridge" is used as file extension)}
  \item{host}{server hosting the PathVisioRPC program}
