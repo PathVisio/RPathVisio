@@ -27,8 +27,4 @@ visualizeDataByURI(uri, gexname, dbname, host="localhost", port=9000, pwypath=NA
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }
