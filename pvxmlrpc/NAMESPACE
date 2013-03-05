@@ -32,5 +32,8 @@ export(
  plotWikipathway,
  removeByGraphId,
  importData,
+ importExpressionSet,
+ importDataByFile,
+ getSystemCode,
  getGraphIDs
 )

@@ -1,14 +1,46 @@
-importData <- function(dataname, dbname, host="localhost", port=9000, datapath=NA, dbpath=NA, outputdir=NA) {
-  if (missing(dataname)) stop("You must provide the name of a tab delimited data file.");
+importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbpath=NA, outputdir=NA, col.names=TRUE, row.names=TRUE, source=NA) {
+  if (missing(name)) stop("You must provide a name for the pgex file")
+  if (missing(dataframe)) stop("You must provide a table.");
   if (missing(dbname)) stop("You must provide the name of the database to use for mapping the data.");
-  if (is.na(datapath)) datapath = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
   if (is.na(dbpath)) dbpath = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
   if (is.na(outputdir)) outputdir = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
-  if (is.na(unlist(strsplit(dataname,"\\."))[2])) dataname = paste(dataname,".txt",sep="");
   if (is.na(unlist(strsplit(dbname,"\\."))[2])) dbname = paste(dbname,".bridge",sep="");
- 
-  data = paste(datapath,"/",dataname,sep="")
-  db = paste(dbpath,"/",dbname,sep="")
+  if (row.names) {
+    dataframe <- cbind(rownames(dataframe),dataframe)
+    colnames(dataframe)[1] <- "ID"
+  }
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathVisio.importData", data, db, outputdir)
+
+# if there's no source given, have bridgedb guess the source
+  if (is.na(source)) {
+    firstid = dataframe[1,1]
+    list <- try(xml.rpc(hostUrl,"PathVisio.getDataSourceMatches",firstid))
+# if there's just a single system code possible, use that system code
+# but if there are more, stop and return the possible source's
+# when the list is empty, report an error
+    if (length(list)==1) {
+    source = getSystemCode(list[1],host=host,port=port)
+    } else if (!class(list) == "try-error") {
+      warning = paste("Unable to detect source, possible source's are:",list)
+      stop(warning)
+    }
+    else stop("Incorrect data frame, unable to match identifiers to a source");
+  } else {
+# else try if source contains the full name
+    tryname = suppressWarnings(try(getSystemCode(source,host=host,port=port),TRUE))
+    if (!class(tryname)=="try-error") source = tryname;
+  }
+# check if the system code is set correctly
+  res <- try(xml.rpc(hostUrl, "PathVisio.getFullNameBySystemCode", source),TRUE)
+  if (class(res) == "try-error") stop ("Invalid system code");
+  l = ncol(dataframe)
+  scnum = l + 1
+  dataframe["System Code"] <- source
+  dataframe = dataframe[,c(1,scnum,2:l)]
+  
+  file = paste(tempdir(),"/",name,".txt",sep="")
+  write.table(dataframe,file,sep="\t",row.names=FALSE,quote=FALSE)
+  db = paste(dbpath,"/",dbname,sep="")
+
+  xml.rpc(hostUrl, "PathVisio.importData", file, db, outputdir)
 }
