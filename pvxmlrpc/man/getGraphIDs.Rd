@@ -20,11 +20,5 @@ getGraphIDs(pathway,name,host="localhost",port=9000,path=NA)
  list of graph identifiers with the same name as the input
 }
 \author{
-Anwesha Dutta
-Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

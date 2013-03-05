@@ -17,11 +17,5 @@ removeByGraphId(pathway,graphId,host="localhost",port=9000,path=NA)
  \item{path}{folder in which the pathway file is stored}
 }
 \author{
-Anwesha Dutta
-Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

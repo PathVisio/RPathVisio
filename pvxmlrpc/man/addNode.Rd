@@ -50,8 +50,4 @@ But as of now it's the only way to return the graphID.
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

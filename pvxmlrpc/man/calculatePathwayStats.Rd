@@ -27,8 +27,4 @@ When no directory is given as path or outputdir, the "PathVisioRPC-Results" dire
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

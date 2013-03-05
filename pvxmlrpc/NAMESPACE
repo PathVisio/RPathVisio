@@ -29,5 +29,6 @@ export(
  getParticipatingUnknowns,
  plotWikipathway,
  removeByGraphId,
+ importData,
  getGraphIDs
 )
