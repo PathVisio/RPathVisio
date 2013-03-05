@@ -21,7 +21,5 @@ removeByGraphId(pathway,graphId,host="localhost",port=9000,path=NA)
 \dontrun{removeByGraphId("ACE Inhibitor","id93926134")}
 }
 \author{
-Anwesha Dutta
-Egon Willighagen
 Christ Leemans
 }
