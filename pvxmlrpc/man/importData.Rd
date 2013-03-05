@@ -8,7 +8,7 @@ Import a data file.
 Import a data frame or tab delimited data file into PathVisioRPC and create a pgex file.
 }
 \usage{
-importData(name,table, dbname, host="localhost", port=9000, dbpath=NA, outputdir=NA) 
+importData(name, dataframe, dbname, host="localhost", port=9000, dbpath=NA, outputdir=NA, row.names=TRUE, source=NA) 
 importDataByFile(filename, dbname, host="localhost", port=9000, filepath=NA, dbpath=NA, outputdir=NA)
 }
 \arguments{
@@ -21,13 +21,11 @@ importDataByFile(filename, dbname, host="localhost", port=9000, filepath=NA, dbp
  \item{filepath}{folder in which the tab delimited file is stored}
  \item{dbpath}{folder in which the database file is stored}
  \item{outputdir}{folder in which the results are saved}
+ \item{row.names}{boolean expression, if "TRUE" the rownames in the dataframe will be seen as the identifier column, if "FALSE" the first column is seen as the identifier column}
+ \item{source}{the datasource of the identifiers used, both the full name and the system code can be used}
 }
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

@@ -1,4 +1,4 @@
-importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbpath=NA, outputdir=NA, col.names=TRUE, row.names=TRUE, source=NA) {
+importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbpath=NA, outputdir=NA, row.names=TRUE, source=NA) {
   if (missing(name)) stop("You must provide a name for the pgex file")
   if (missing(dataframe)) stop("You must provide a table.");
   if (missing(dbname)) stop("You must provide the name of the database to use for mapping the data.");
@@ -10,23 +10,24 @@ importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbp
     colnames(dataframe)[1] <- "ID"
   }
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-
 # if there's no source given, have bridgedb guess the source
   if (is.na(source)) {
     firstid = dataframe[1,1]
-    list <- try(xml.rpc(hostUrl,"PathVisio.getDataSourceMatches",firstid))
+    list <- try(xml.rpc(hostUrl,"PathVisio.getDataSourceMatches",firstid),TRUE)
+    if (class(list)=="try-error") stop("identifier pattern not recognized")
 # if there's just a single system code possible, use that system code
 # but if there are more, stop and return the possible source's
 # when the list is empty, report an error
     if (length(list)==1) {
     source = getSystemCode(list[1],host=host,port=port)
     } else if (!class(list) == "try-error") {
-      warning = paste("Unable to detect source, possible source's are:",list)
-      stop(warning)
+      strlist = paste(list,collapse=(", "))
+      stop(paste("Unable to detect source, possible source's are:",strlist))
     }
     else stop("Incorrect data frame, unable to match identifiers to a source");
-  } else {
-# else try if source contains the full name
+  }
+# else try if source contains the full name 
+  else {
     tryname = suppressWarnings(try(getSystemCode(source,host=host,port=port),TRUE))
     if (!class(tryname)=="try-error") source = tryname;
   }
