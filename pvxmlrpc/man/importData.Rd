@@ -13,7 +13,7 @@ importDataByFile(filename, dbname, host="localhost", port=9000, filepath=NA, dbp
 }
 \arguments{
  \item{name}{name for the pgex file created}
- \item{table}{Data frame with the data for the pgex file}
+ \item{dataframe}{Data frame with the data for the pgex file}
  \item{filename}{name of the data file (if there's no "." in the name, ".txt" is used as file extension)}
  \item{dbname}{name of the database file (if there's no "." in the name, ".bridge" is used as file extension)}
  \item{host}{server hosting the PathVisioRPC program}
