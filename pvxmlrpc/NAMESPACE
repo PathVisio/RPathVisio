@@ -1,5 +1,6 @@
 import("rJava")
 import("pvxmlrpclibs")
+import("bridgedbr")
 export(
  pathvisioServer,
  createPathway,
@@ -16,6 +17,8 @@ export(
  exportPathwayasPng,
  exportPathwayasSvg,
  createVisualization,
+ createVisualizationGradient,
+ createVisualizationRule,
  visualizeData,
  visualizeDataByURI,
  calculatePathwayStats,
@@ -29,5 +32,7 @@ export(
  getParticipatingUnknowns,
  plotWikipathway,
  removeByGraphId,
+ importData,
+ importDataByFile,
  getGraphIDs
 )
