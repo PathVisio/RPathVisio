@@ -1,12 +1,17 @@
 \name{createVisualization}
 \alias{createVisualization}
+\alias{createVisualizationGradient}
+\alias{createVisualizationRule}
 \title{
 Create Visualization functions
 }
 \description{
-Functions for creating visualizations, color gradients and rules according to which the data would be represented on pathways
+Functions for creating visualizations on pgex expression files, both color gradients and color rules can be used to visualize data on pathways
 }
-\usage{createVisualization(gexname, gsample, gcolors, gvalues, rsample, rcolors, rexprs, host="localhost", port="9000", gexpath=NA)
+\usage{
+createVisualization(gexname, gsample, gcolors, gvalues, rsample, rcolors, rexprs, host="localhost", port="9000", gexpath=NA)
+createVisualizationGradient(gexname, gsample, gcolors, gvalues, host="localhost", port="9000", gexpath=NA)
+createVisualizationRule(gexname, rsample, rcolors, rexprs, host="localhost", port="9000", gexpath=NA)
 }
 \arguments{
  \item{gexname}{name of the gex file, which has the data to be visualized}
@@ -21,8 +26,8 @@ Functions for creating visualizations, color gradients and rules according to wh
  \item{gexpath}{folder in which the gex-file is stored(when no value is given, the "PathVisioRPC-Result" directory in the home folder is used)}
 }
 \note{
-The seperate values in the input string should be seperated by ";". 
-Colors and values belonging to the same gradient should be seperated by ",".
+When applying more then one gradient or rule, the different gradient/rule values in the input string should be seperated by ";". 
+Colors and values belonging to the same gradient should be seperated by "," and at least 2 colors and values are required.
 }
 \author{
 Anwesha Dutta
