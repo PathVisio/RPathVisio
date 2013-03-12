@@ -2,24 +2,21 @@ importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbp
   if (missing(name)) stop("You must provide a name for the pgex file")
   if (missing(dataframe)) stop("You must provide a table.");
   if (missing(dbname)) stop("You must provide the name of the database to use for mapping the data.");
-  if (is.na(dbpath)) dbpath = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
-  if (is.na(outputdir)) outputdir = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
-  if (is.na(unlist(strsplit(dbname,"\\."))[2])) dbname = paste(dbname,".bridge",sep="");
   if (row.names) {
     dataframe <- cbind(rownames(dataframe),dataframe)
     colnames(dataframe)[1] <- "ID"
   }
-  hostUrl = paste("http://", host, ":", port, "/", sep="")
+  hostUrl=paste("http://",host,":",port,sep="")
 # if there's no source given, have bridgedb guess the source
   if (is.na(source)) {
     firstid = dataframe[1,1]
-    list <- try(xml.rpc(hostUrl,"PathVisio.getDataSourceMatches",firstid),TRUE)
-    if (class(list)=="try-error") stop("identifier pattern not recognized")
+    list <- getMatchingSources(as.character(firstid))
+    if (is.na(list[1])) stop("identifier pattern not recognized")
 # if there's just a single system code possible, use that system code
 # but if there are more, stop and return the possible source's
 # when the list is empty, report an error
     if (length(list)==1) {
-    source = getSystemCode(list[1],host=host,port=port)
+    source = getSystemCode(list[1])
     } else if (!class(list) == "try-error") {
       strlist = paste(list,collapse=(", "))
       stop(paste("Unable to detect source, possible source's are:",strlist))
@@ -28,20 +25,18 @@ importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbp
   }
 # else try if source contains the full name 
   else {
-    tryname = suppressWarnings(try(getSystemCode(source,host=host,port=port),TRUE))
-    if (!class(tryname)=="try-error") source = tryname;
+    tryname = getSystemCode(source)
+    if (!is.na(tryname)) source = tryname;
   }
 # check if the system code is set correctly
-  res <- try(xml.rpc(hostUrl, "PathVisio.getFullNameBySystemCode", source),TRUE)
-  if (class(res) == "try-error") stop ("Invalid system code");
+  res = getFullName(source)
+  if (is.na(res)) stop ("Invalid source");
   l = ncol(dataframe)
   scnum = l + 1
   dataframe["System Code"] <- source
   dataframe = dataframe[,c(1,scnum,2:l)]
-  
-  file = paste(tempdir(),"/",name,".txt",sep="")
+  filepath=tempdir()
+  file = paste(filepath,"/",name,".txt",sep="")
   write.table(dataframe,file,sep="\t",row.names=FALSE,quote=FALSE)
-  db = paste(dbpath,"/",dbname,sep="")
-
-  xml.rpc(hostUrl, "PathVisio.importData", file, db, outputdir)
+  importDataByFile(name,dbname,host=host,port=port,filepath=filepath, dbpath=dbpath, outputdir=outputdir)
 }

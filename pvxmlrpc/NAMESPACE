@@ -1,5 +1,6 @@
 import("rJava")
 import("pvxmlrpclibs")
+import("bridgedbr")
 export(
  pathvisioServer,
  createPathway,
@@ -33,6 +34,5 @@ export(
  removeByGraphId,
  importData,
  importDataByFile,
- getSystemCode,
  getGraphIDs
 )
