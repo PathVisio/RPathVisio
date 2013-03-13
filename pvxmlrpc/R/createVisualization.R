@@ -4,9 +4,13 @@ createVisualization <- function(gexname, gsample="", gcolors="", gvalues="", rsa
      && (rsample=="" | rcolors=="" | rexprs=="")) 
      stop("You must either provide a complete set of gradient values or a complete set of color rules.");
   if (is.na(gexpath)) gexpath = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
-  if (is.na(unlist(strsplit(gexname,"\\."))[2])) gexname = paste(gexname,".pgex",sep="");
  
-  gex = paste(gexpath,"/",gexname, sep="")
+  exts = c(".pgex","")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
-  xml.rpc(hostUrl, "PathVisio.createVisualization", gex, gsample, gcolors, gvalues, rsample, rcolors, rexprs)
+  for (ext in exts) {
+    g = paste(gexpath,"/",gexname,ext,sep="")
+    if (file.exists(g)) gex = g
+  }
+  rexprs = paste("[",unlist(strsplit(rsample,";")),"]",unlist(strsplit(rexprs,";")),sep="",collapse=";")
+  xml.rpc(hostUrl,"PathVisio.createVisualization", gex, gsample, gcolors, gvalues, rsample, rcolors, rexprs)
 }
