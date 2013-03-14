@@ -8,7 +8,7 @@ Import a data file.
 Import a data frame or tab delimited data file into PathVisioRPC and create a pgex file.
 }
 \usage{
-importData(name, dataframe, dbname, host="localhost", port=9000, dbpath=NA, outputdir=NA, row.names=TRUE, source=NA) 
+importData(name, dataframe, dbname, host="localhost", port=9000, filepath=NA, dbpath=NA, outputdir=NA, row.names=TRUE, source=NA) 
 importDataByFile(filename, dbname, host="localhost", port=9000, filepath=NA, dbpath=NA, outputdir=NA)
 }
 \arguments{
