@@ -2,9 +2,9 @@ visualizeDataByURI <- function(uri, gexname, dbname, host="localhost", port=9000
   if (missing(uri)) stop("You must provide WikiPathway ID for the pathway");
   if (missing(gexname)) stop("You must provide the name of the gexfile to use.");
   if (missing(dbname)) stop("You must provide the name of the database to use for mapping the data.");
-  if (is.na(gexpath)) gexpath = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
-  if (is.na(dbpath)) dbpath = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
-  if (is.na(outputdir)) outputdir = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");;
+  if (is.na(gexpath)) gexpath = getwd();
+  if (is.na(dbpath)) dbpath = getwd();
+  if (is.na(outputdir)) outputdir = getwd();
  
   gexexts = c(".pgex","")
   dbexts = c(".bridge","",".pgdb")

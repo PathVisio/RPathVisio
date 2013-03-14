@@ -3,7 +3,7 @@ createVisualization <- function(gexname, gsample="", gcolors="", gvalues="", rsa
   if ((gsample=="" | gcolors=="" | gvalues=="")
      && (rsample=="" | rcolors=="" | rexprs=="")) 
      stop("You must either provide a complete set of gradient values or a complete set of color rules.");
-  if (is.na(gexpath)) gexpath = paste(path.expand("~"),"/PathVisioRPC-Results",sep="");
+  if (is.na(gexpath)) gexpath = getwd();
  
   exts = c(".pgex","")
   hostUrl = paste("http://", host, ":", port, "/", sep="")

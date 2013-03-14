@@ -1,7 +1,8 @@
-importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbpath=NA, outputdir=NA, row.names=TRUE, source=NA) {
+importData <- function(name, dataframe, dbname, host="localhost", port=9000, filepath=NA, dbpath=NA, outputdir=NA, row.names=TRUE, source=NA) {
   if (missing(name)) stop("You must provide a name for the pgex file")
   if (missing(dataframe)) stop("You must provide a table.");
   if (missing(dbname)) stop("You must provide the name of the database to use for mapping the data.");
+  if (is.na(filepath)) filepath = temdir();
   if (row.names) {
     dataframe <- cbind(rownames(dataframe),dataframe)
     colnames(dataframe)[1] <- "ID"
@@ -35,7 +36,6 @@ importData <- function(name, dataframe, dbname, host="localhost", port=9000, dbp
   scnum = l + 1
   dataframe["System Code"] <- source
   dataframe = dataframe[,c(1,scnum,2:l)]
-  filepath=tempdir()
   file = paste(filepath,"/",name,".txt",sep="")
   write.table(dataframe,file,sep="\t",row.names=FALSE,quote=FALSE)
   importDataByFile(name,dbname,host=host,port=port,filepath=filepath, dbpath=dbpath, outputdir=outputdir)
