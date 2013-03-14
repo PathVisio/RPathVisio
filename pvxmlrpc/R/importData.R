@@ -2,7 +2,7 @@ importData <- function(name, dataframe, dbname, host="localhost", port=9000, fil
   if (missing(name)) stop("You must provide a name for the pgex file")
   if (missing(dataframe)) stop("You must provide a table.");
   if (missing(dbname)) stop("You must provide the name of the database to use for mapping the data.");
-  if (is.na(filepath)) filepath = temdir();
+  if (is.na(filepath)) filepath = tempdir();
   if (row.names) {
     dataframe <- cbind(rownames(dataframe),dataframe)
     colnames(dataframe)[1] <- "ID"
