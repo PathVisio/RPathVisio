@@ -1,4 +1,4 @@
-addPathwayNode <- function(pathway, name, host="localhost", port=9000, ref="", comment="", dataId="", dataSource="", path=NA) {
+addPathwayNode <- function(pathway, name, host="localhost", port=9000, dataId="", dataSource="", path=NA) {
 
-  addDataNode(pathway, name, "Pathway", host, port, ref, comment, dataId, dataSource, path)
+  addDataNode(pathway, name, "Pathway", host, port, dataId, dataSource, path)
 }

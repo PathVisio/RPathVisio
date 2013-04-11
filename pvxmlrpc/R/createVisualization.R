@@ -5,7 +5,7 @@ createVisualization <- function(gexname, gsample="", gcolors="", gvalues="", rsa
      stop("You must either provide a complete set of gradient values or a complete set of color rules.");
   if (is.na(gexpath)) gexpath = getwd();
  
-  exts = c(".pgex","")
+  exts = c("",".pgex")
   hostUrl = paste("http://", host, ":", port, "/", sep="")
   for (ext in exts) {
     g = paste(gexpath,"/",gexname,ext,sep="")

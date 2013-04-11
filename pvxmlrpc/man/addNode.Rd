@@ -12,12 +12,12 @@ Add data node functions
 Functions for adding different types of data nodes to a pathway.
 }
 \usage{
-addDataNode(pathway,name,type,host="localhost",port=9000,ref="",comment="",dataId="",dataSource="",path=NA)
-addPathwayNode(pathway,name,host="localhost",port=9000,ref="",comment="",dataId="",dataSource="",path=NA)
-addRNANode(pathway,name,host="localhost",port=9000,ref="",comment="",dataId="",dataSource="",path=NA)
-addMetaboliteNode(pathway,name,host="localhost",port=9000,ref="",comment="",dataId="",dataSource="",path=NA)
-addProteinNode(pathway,name,host="localhost",port=9000,ref="",comment="",dataId="",dataSource="",path=NA)
-addGeneProductNode(pathway,name,host="localhost",port=9000,ref="",comment="",dataId="",dataSource="",path=NA)
+addDataNode(pathway,name,type,host="localhost",port=9000,dataId="",dataSource="",path=NA)
+addPathwayNode(pathway,name,host="localhost",port=9000,dataId="",dataSource="",path=NA)
+addRNANode(pathway,name,host="localhost",port=9000,dataId="",dataSource="",path=NA)
+addMetaboliteNode(pathway,name,host="localhost",port=9000,dataId="",dataSource="",path=NA)
+addProteinNode(pathway,name,host="localhost",port=9000,dataId="",dataSource="",path=NA)
+addGeneProductNode(pathway,name,host="localhost",port=9000,dataId="",dataSource="",path=NA)
 }
 \arguments{
  \item{pathway}{name of the pathway in which to add the data node}
@@ -25,8 +25,6 @@ addGeneProductNode(pathway,name,host="localhost",port=9000,ref="",comment="",dat
  \item{type}{type of data node, either "Pathway","Protein","Metabolite","RNA","GeneProduct" or "Unknown"}
  \item{host}{server hosting the PathVisioRPC program}
  \item{port}{communication port on which to contact PathVisioRPC}
- \item{ref}{BioPax reference}
- \item{comment}{further comment on the element represented by the data node}
  \item{dataId}{unique identifier belonging to the element represented by the data node(not the data node itself)}
  \item{dataSource}{the source of the identifier given as the dataId)}
  \item{path}{directory path in wich the pathway is situated}
@@ -36,8 +34,6 @@ addGeneProductNode(pathway,name,host="localhost",port=9000,ref="",comment="",dat
  \item{name}{the name of the data node}
  \item{type}{type of data node}
  \item{graphId}{unique identifier belonging to the specific data node(not the element represented by it)}
- \item{ref}{BioPax reference}
- \item{comment}{further comment on the element represented by the data node}
  \item{dataId}{unique identifier belonging to the element represented by the data node(not the data node itself)}
  \item{dataSource}{the source of the dataId identifier)}
 }
