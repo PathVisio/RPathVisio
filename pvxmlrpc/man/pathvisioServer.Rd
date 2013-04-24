@@ -12,12 +12,12 @@ pathvisioServer(port=9000)
 \arguments{
  \item{port}{communication port on which PathVisioRPC can be contacted}
 }
+\examples{
+#start a server on port 8080
+\dontrun{pathvisioServer(8080)}
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

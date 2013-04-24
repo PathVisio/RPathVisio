@@ -42,12 +42,19 @@ graphId is currently retrieved by splitting the line which is returned from Path
 This is not a nice way of doing that, and in the future this might prove a problem.
 But as of now it's the only way to return the graphID.
 }
+\examples{
+##create a pathway
+pwy<- createPathway("ACE inhibitor")
+
+##now you can add a datanode with the generic function
+addDataNode(pwy$name,"Angiotensin II","Metabolite",dataId="HMDB01035",dataSource="HMDB")
+
+##or add a node with a more specific function
+addGeneProductNode(pwy$name,"AGTR1",dataId="185",dataSource="Entrez Gene")
+
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

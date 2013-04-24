@@ -37,12 +37,19 @@ graphId is currently retrieved by splitting the line which is returned from Path
 This is not a nice way of doing that, and in the future this might prove a problem.
 But as of now it's the only way to return the graphID.
 }
+\examples{
+\dontshow{pathvisioServer()}
+## create a pathway and 2 datanodes
+pwy<- createPathway("ACE inhibitor")
+m <- addMetaboliteNode(pwy$name,"Angiotensin II")
+gp <- addGeneProductNode(pwy$name,"AGTR1")
+
+##add a line with simple arrow
+arrow <- addLine(pwy$name,"line",m$name,gp$name)
+
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

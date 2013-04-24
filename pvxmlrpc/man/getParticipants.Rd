@@ -34,12 +34,14 @@ getParticipatingUnknowns(pathway,host="localhost",port=9000,path=NA,outputdir=NA
 \value{
  list containing the names of the pathwayelements present in the given pathway of the pathwayelementtype provided
 }
+\examples{
+# two ways of getting participating gene products in the "ACE Inhibitor" pathway
+\dontrun{getparticipants("ACE Inhibitor","GeneProduct")}
+
+\dontrun{getparticipatingGeneProducts("ACE Inhibitor")}
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

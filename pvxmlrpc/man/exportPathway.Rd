@@ -23,12 +23,15 @@ exportPathwayasSvg(pathway, host="localhost", port=9000, path=NA, outputdir=NA)
  \item{path}{path to where the pathway is stored}
  \item{outputdir}{directory to save the exported pathway}
 }
+\examples{
+#with the general function
+\dontrun{exportPathway("pathway name","Png")}
+
+#with a specific function
+\dontrun{exportPathwayasPng("pathway name")}
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

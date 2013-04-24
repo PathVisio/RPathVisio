@@ -14,6 +14,10 @@ plotWikipathway(pathwayID, host="localhost", port=9000)
  \item{host}{server hosting the PathVisioRPC program}
  \item{port}{communication port on which to contact PathVisioRPC}
 }
+\examples{
+#plot the human "ACE Inhibitor" pathway(WP554)
+plotWikipathway("WP554")
+}
 \author{
 Egon Willighagen
 }

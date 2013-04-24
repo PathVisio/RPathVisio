@@ -19,12 +19,10 @@ getGraphIDs(pathway,name,host="localhost",port=9000,path=NA)
 \value{
  list of graph identifiers with the same name as the input
 }
+\examples{
+#get the graphId's of the data nodes called "ACE" in the "ACE Inhibitor" Pathway
+\dontrun{getGraphId("ACE Inhibitor", "ACE")}
+}
 \author{
-Anwesha Dutta
-Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

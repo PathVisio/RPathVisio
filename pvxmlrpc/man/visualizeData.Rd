@@ -23,12 +23,15 @@ visualizeDataByURI(uri, gexname, dbname, host="localhost", port=9000, pwypath=NA
  \item{dbpath}{folder in which the database file is stored}
  \item{outputdir}{folder in which the results are saved}
 }
+\examples{
+#visualize data from the data imported into the "data.pgex" file, onto the locally stored "ACE Inhibitor" pathway with help of the "Hs_Derby.bridge" database
+\dontrun{visualizeData("ACE Inhibitor", "data", "Hs_Derby")}
+
+#visualize the same data on the "ACE Inhibitor" pathway(WP554) from wikipathways
+\dontrun{visualizeDataByURI("WP554","data","Hs_Derby")}
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

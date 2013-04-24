@@ -24,6 +24,13 @@ importDataByFile(filename, dbname, host="localhost", port=9000, filepath=NA, dbp
  \item{row.names}{boolean expression, if "TRUE" the rownames in the dataframe will be seen as the identifier column, if "FALSE" the first column is seen as the identifier column}
  \item{source}{the datasource of the identifiers used, both the full name and the system code can be used}
 }
+\examples{
+# import the dataframe object called dataframe and give the file the name "data" using the "Hs_Derby.bridge" database file and the source of the identifiers is "GeneWiki"
+\dontrun{importData("data",dataframe,"Hs_Derby",source="Gene Wiki")}
+
+# import a file called "data.txt"
+\dontrun{importData("data.txt","Hs_Derby")}
+}
 \author{
 Anwesha Dutta
 Egon Willighagen

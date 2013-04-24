@@ -17,12 +17,12 @@ createPathway(name,host="localhost",port=9000,author="Anonymous",organism="",pat
  \item{organism}{organism in which the pathway can be found}
  \item{path}{folder in which the pathway file is stored on the local machine}
 }
+\examples{
+##create a pathway
+createPathway("ACE inhibitor")
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }

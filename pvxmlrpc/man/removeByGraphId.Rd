@@ -16,12 +16,12 @@ removeByGraphId(pathway,graphId,host="localhost",port=9000,path=NA)
  \item{port}{communication port on which to contact PathVisioRPC}
  \item{path}{folder in which the pathway file is stored}
 }
+\examples{
+#remove the datanode with graphId "id93926134" from the "ACE Inhibitor" pathway
+\dontrun{removeByGraphId("ACE Inhibitor","id93926134")}
+}
 \author{
 Anwesha Dutta
 Egon Willighagen
 Christ Leemans
-
-Maintainer: Anwesha Dutta <anwesha.dutta@maastrichtuniversity.nl>
-<Egon Willighagen <egon.willighagen@gmail.com>
-<C.Leemans@student.maastrichtuniversity.nl>
 }
