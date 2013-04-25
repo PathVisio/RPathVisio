@@ -35,14 +35,7 @@ Running the server on the default port can be performed from within R:
 
 <<>>=
 library(pvxmlrpc)
-@
-<<eval=FALSE>>=
 port = pathvisioServer()
-@
-<<echo=false>>=
-port = 9000
-@
-<<>>=
 cat(paste("Port:", port, "\n"))
 @
 
