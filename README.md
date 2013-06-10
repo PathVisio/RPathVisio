@@ -1,11 +1,11 @@
 R package for PathVisioRPC
 ===============================
 
-The rPathVisio package enables the use of the pathway analysis tool PathVisio() and the wealth of Wikipathways()
-pathways in the R enironment. This package wraps xml.rpc() calls made to the PathVisioRPC Server, which is an 
-XML-RPC based implementation of PathVisio, into more an R API that hides more of the technologies of XML-RPC. The 
-package also sets a number of typical defaults and performs some argument validation in order to provide better 
-feedback to the user.
+The rPathVisio package enables the use of the pathway analysis tool PathVisio(http://www.pathvisio.org/) and the 
+wealth of Wikipathways(http://wikipathways.org/index.php/WikiPathways) pathways in the R enironment. This package
+wraps xml.rpc() calls made to the PathVisioRPC Server, which is an XML-RPC based implementation of PathVisio, into 
+more an R API that hides more of the technologies of XML-RPC. The package also sets a number of typical defaults 
+and performs some argument validation in order to simplify usage and provide better feedback to the user.
 
 There are two packages, one containing the PathVisioRPC archive, and one containing the methods. This is a common 
 approach on CRAN, as the jar archive is less likely to change is the wrapping methods.
