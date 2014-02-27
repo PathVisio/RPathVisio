@@ -1,5 +1,0 @@
-import("rJava")
-import("pvxmlrpclibs")
-export(
- pathvisioServer
-)

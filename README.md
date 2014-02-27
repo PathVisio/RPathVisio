@@ -12,16 +12,12 @@ approach on CRAN, as the jar archive is less likely to change is the wrapping me
 
 To check and build a package run:
 
-    R CMD check pvxmlrpc
-    R CMD build pvxmlrpc
-    R CMD INSTALL pvxmlrpc_1.x.y.tar.gz
-
     R CMD check pvxmlrpclibs
     R CMD build pvxmlrpclibs
     R CMD INSTALL pvxmlrpclibs_1.x.y.tar.gz
     
-    R CMD check pvxmlrpcserver
-    R CMD build pvxmlrpcserver
+    R CMD check pvxmlrpc
+    R CMD build pvxmlrpc
 
 To create the vignette:
 
