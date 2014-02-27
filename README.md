@@ -26,3 +26,13 @@ To check and build a package run:
 To create the vignette:
 
     rm -f ./pvxmlrpc/inst/doc/tutorial.pdf; R CMD build pvxmlrpc; tar xvf pvxmlrpc_1.0.1.tar.gz pvxmlrpc/inst/doc/tutorial.pdf
+
+
+Dependencies
+============
+
+The pvxmlrpc package depends on the XMLRPC package. It can be installed from
+BioConductor with:
+
+    source("http://bioconductor.org/biocLite.R")
+    biocLite("XMLRPC")
