@@ -1,8 +1,5 @@
-import("rJava")
-import("pvxmlrpclibs")
 import("bridgedbr")
 export(
- pathvisioServer,
  createPathway,
  addDataNode,
  addLine,
