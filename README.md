@@ -32,3 +32,7 @@ BioConductor with:
 
     source("http://bioconductor.org/biocLite.R")
     biocLite("XMLRPC")
+
+It also depends on the R package for BridgeDb, available from:
+
+    https://github.com/BiGCAT-UM/bridgedb-r
