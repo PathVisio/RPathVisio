@@ -1,0 +1,38 @@
+import("XMLRPC")
+import("rJava")
+import("BridgeDbR")
+export(
+ pathvisioServer,
+ createPathway,
+ addDataNode,
+ addLine,
+ addMetaboliteNode,
+ addProteinNode,
+ addGeneProductNode,
+ addRNANode,
+ addPathwayNode,
+ addMim,
+ exportPathway,
+ exportPathwayasPdf,
+ exportPathwayasPng,
+ exportPathwayasSvg,
+ createVisualization,
+ createVisualizationGradient,
+ createVisualizationRule,
+ visualizeData,
+ visualizeDataByURI,
+ calculatePathwayStats,
+ getParticipants,
+ getParticipatingGeneProducts,
+ getParticipatingMetabolites,
+ getParticipatingPathways,
+ getParticipatingProteins,
+ getParticipatingReactions,
+ getParticipatingRNAs,
+ getParticipatingUnknowns,
+ plotWikipathway,
+ removeByGraphId,
+ importData,
+ importDataByFile,
+ getGraphIDs
+)

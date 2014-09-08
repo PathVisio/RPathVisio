@@ -1,0 +1,284 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% \VignetteIndexEntry{tutorial}
+
+\title{A RPathVisio Tutorial}
+\author{
+  Christ Leemans
+  Egon Willighagen
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+<<echo=FALSE, results=hide>>=
+library(bridgedbr)
+dataframe <- read.table("exampledata.txt",header=TRUE,sep="\t")
+derby <- getDatabase("Rattus norvegicus",locatio=getwd())
+file.rename(derby,"Rn_Derby.bridge")
+@
+
+\section{Introduction}
+
+This tutorial will talk you try the basic RPathVisio commands. RPathVisio is a package that allows
+you to interact with PathVisio \cite{VanIersel2008} from within R. It uses XML-RPC as communication layer in this process
+and requires a running PathVisio-RPC server.
+
+\section{Running the server}
+
+Running the server on the default port can be performed from within R:
+
+<<>>=
+library(pvxmlrpc)
+port = pathvisioServer()
+cat(paste("Port:", port, "\n"))
+@
+
+\section{XML-RPC}
+
+This package uses the XML-RPC extension of PathVisio to interact with it. Therefore, you can use
+the normal XML-RPC code. However, we decided to provide a number of convenience methods to hide
+the more technical aspects of this communication, and make some reasonable assumptions for default
+values. Therefore, the following two commands are equivalent.
+
+<<>>=
+pathway = createPathway("Test pathway", author="Jan Janssen")
+pathway = xml.rpc(
+  "http://localhost:9000/",
+  "PathVisio.createPathway",
+  "Jan Janssen", "Test pathway", "Homo Sapiens","/home/user/PathVisioRPC-Results"
+)
+@
+
+You decide what approach you prefer to use.
+
+\subsection{Server and port}
+
+This requires the port it runs on to be free. Need you use a different port,
+than you can use the \emph{port} parameter:
+
+<<>>=
+port = pathvisioServer(port=8080)
+cat(paste("Port:", port, "\n"))
+@
+
+The advantage of using the default port, is that the other methods will accept those default
+so that you do not have to give them explicitly. If you run your PathVisio-RPC server on a different
+machine, or if you use a non-default port, you can use the \textit{host} and \textit{port} parameters
+available for all methods.
+
+\section{First Steps}
+
+\subsection{Creating pathways}
+
+The pathway is the central object in PathVisio. Any thing, metabolite, protein, gene, etc, are
+contained in a pathway. Therefore, the first thing to do is create a pathway. This can be done with:
+
+<<>>=
+pathway = createPathway("Test pathway")
+@
+
+Optionally, you can provide author information and/or the organism in which the pathway is found:
+
+<<>>=
+pathway = createPathway("Test pathway", author="Jan Janssen", organism="Homo sapiens")
+@
+
+These pathways are stored as GPML files in the PathVisioRPC-Results folder in the home directory.
+When you prefer the file to be stored in another folder you can provide an alternative path:
+
+<<>>=
+altpath = getwd()
+pathway = createPathway("Test pathway", author="Jan Janssen", organism="Homo sapiens", path = altpath)
+@
+
+The createPathway function also creates a named list with a \textit{name}, \textit{author}, \textit{organism} and \textit{path}.
+
+<<>>=
+pathway$name
+pathway$author
+pathway$organism
+pathway$path
+@
+
+\subsection{Adding content}
+
+Next thing is to add content to the pathway. The central piece of content in a pathway is a data node,
+which must have a name and a type:
+
+<<>>=
+n1 = addDataNode("Test pathway", "SomeGene", "GeneProduct")
+@
+
+Possible types are \textit{Metabolite}, \textit{Protein}, \textit{GeneProduct}, \textit{RNA}, \textit{Unknown} and \textit{Pathway}.
+The last one is for refering to related pathways.
+
+In this function the following additional information on the data node can be provided as well:
+\textit{dataId} - an unique identifier for the object, e.g. an enseml identifier
+\textit{datasource} - source of the identifier given, e.g. ensembl 
+
+an alternative path where the pathway is stored can be given as well.
+
+<<>>=
+n1 = addDataNode("Test pathway","SomeGene","GeneProduct",dataId="ENSG000111",dataSource="Ensembl",path=altpath)
+@
+
+The values are returned in a list and are as follows:
+
+<<>>=
+n1$pathway
+n1$name
+n1$type
+n1$dataId
+n1$dataSource
+n1$path
+@
+
+
+Making connections between nodes define the paths of the pathway, and is done with the
+\textit{addLine} method.
+
+<<>>=
+pwy = createPathway("Butyrate")
+aa = addDataNode(pwy$name, "Acetoacetate", "Metabolite")
+hb =addDataNode(pwy$name, "3-Hydroxy-butyrate", "Metabolite")
+l = addLine(pwy$name, "A->B", "Acetoacetate", "3-Hydroxy-butyrate")
+@
+
+\subsection{Convenience methods}
+
+To further simply the R code to create pathways, we have added methods specific for the
+various data node types. For example, we can also add a metabolite with:
+
+<<>>=
+m = addMetaboliteNode("Test pathway", "Acetoacetate")
+@
+
+With line types we've done this differently, in this case we have chosen to make a seperate function to add Mim-types.
+
+<<>>=
+name = "ACE inhibitor"
+pwy = createPathway(name)
+m = addMetaboliteNode(name,"captopril")
+p = addProteinNode(name,"ACE")
+l = addMim(name,"inhibitor mim-type",m$name,p$name,"inhibition")
+@
+
+\subsection{exporting a pathway}
+
+When you've created your own pathway, you can use the exportPathway function to export your pathway into a file format like png.
+
+<<results=hide>>=
+exportPathway("ACE inhibitor","png")
+@
+
+The result can be seen  in Figure \ref{fig:png}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics{ACE inhibitor.png}
+\caption{ACE inhibitor.png}
+\label{fig:png}
+\end{figure}
+
+
+
+\section{Creating graphics}
+
+But of course it is all about the looks. For example, we can plot pathways from Wikipathways \cite{Pico2008} in R with:
+
+<<wp2366,include=false,width=6,height=6>>=
+plotWikipathway("WP2366")
+@
+
+The result is shown in Figure \ref{fig:wp2366}.
+
+\begin{figure}[ht]
+\centering
+<<fig=true,echo=FALSE>>=
+<<wp2366>>
+@
+\caption{WikiPathways WP2366.}
+\label{fig:wp2366}
+\end{figure}
+
+\section{Visualizing experimental data}
+
+With this package it's also possible to visualize your experimental data on pathways. This can be done in three steps:
+
+\subsection{import data in a PathVisio expression file(.pgex)}
+
+First a Pathvisio expression file needs to be created. This can be done in two ways: with a text file and with a dataframe. I will show how it's done with the a dataframe.
+The function goes as follows:
+
+<<results=hide, eval=FALSE>>=
+importData(name, dataframe, dbname, host = "localhost", port = 9000, dbpath = NA, outputdir = NA, row.names = TRUE, source = NA)
+@
+
+The required paremeter "name" will be used to name the file created ("name.pgex"). The parameter dataframe is for the input dataframe and the parameter dbname is for the name of the database file used(e.g. a .bridge file).
+
+The host and port are for the address the server is running on and dbpath and outputdir are the directory where the database is in and the directory where the results are saved.
+row.names is for when the row names are the gene identifiers, if the gene identifiers are in the first collumn, row.names needs to be set to "FALSE". 
+
+The source parameter can be set in order to specify what the source of the identifiers is. The data sources supported by PathVisio can be found at: \url{http://www.pathvisio.org/wiki/DatabasesMapps}. The import data function will use this to create a column with a "system code", this makes sure that the correct source is set when the expression set is created.
+
+Users can either set the source parameter using the full name of the data source, or with the system code. When this parameter is not set, the function will use the first identifier to try and match the pattern to a possible source. This can have three different outcomes:
+- If only one source matches the pattern, this source is set as data source
+- If there are more than one source's that match the pattern, an error is reported with the possible data sources.
+- If there are no matches, an error is reported that the data source can not be found
+
+In this example we have the following data frame:
+<<>>=
+head(dataframe)
+@
+
+As can be seen by the top of the data frame, it has a column with Entrez Gene identifiers and columns with statistical results. The identifiers are not the row name, so row.names=FALSE. Let's first see what happens if we don't use a system code:
+
+<<eval=FALSE>>=
+importData("example",dataframe,"Rn_Derby",row.names=FALSE)
+@
+
+As we can see, there are three different source's that have the same pattern as the first identifier. Entrez Gene indeed is one of them, so now let's try again with the system code:
+
+<<>>=
+importData("example",dataframe,"Rn_Derby",row.names=FALSE,source="Entrez Gene")
+@
+Success! With "Entrez Gene" as source name, the expression set was created. 
+Another way of doing this was by using the system code "L" directly.
+
+\subsection{creating a visualization}
+
+Data can be visualized on pathways using colours. A gradient colouring scheme can be used to visualize a range of data on a gene (eg. Fold Change) while a rule can be applied for certain criteria allowing only the genes which qualify to be coloured (e.g P Value < 0.05)
+There are three functions for creating visualizations: createVisualization, createVisualizationGradient and createVisualizationRule. The createVizualization can be used to create both a rule and a gradient. If the user wants to create more then one rule, or gradient, values need to be seperated with a ";".
+Let's create a visualization rule and gradient:
+
+<<>>=
+createVisualization("example.txt.pgex","logFC","blue,white,red","-1,0,4","adj.P.Val","green","<0.05")
+@
+
+\subsection{visualizing data on a Pathway}
+Now that the visualization is created, we can visualize data on a pathway either on a local pathway using visualizeData(), or on a pathway from WikiPathways using visualizeDataByURI(). Both functions need to have 3 parameters: the pathway(either file or URI), the expression file and the database file. Let's visualize it on the cell cycle pathway from wikipathways, seen \href{<wikipathways.org/index.php/Pathway:WP429>}{here}. The code for this pathway is "WP429", this identifier can be seen in the url on wikipathways.
+
+<<>>=
+visualizeDataByURI("WP429","example.txt.pgex","Rn_Derby")
+@
+
+Now a folder is created in the working directory, this folder has a html page to view the results and an image, the image created can be seen below in Figure \ref{fig:cc}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics{Cell cycle/image/Cell cycle.png}
+\caption{Cell cycle.png}
+\label{fig:cc}
+\end{figure}
+
+\bibliographystyle{abbrv}
+\bibliography{tutorial}
+
+
+\end{document}
