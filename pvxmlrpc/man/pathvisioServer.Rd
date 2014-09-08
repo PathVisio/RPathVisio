@@ -19,5 +19,4 @@ pathvisioServer(port=9000)
 \author{
 Anwesha Dutta
 Egon Willighagen
-Christ Leemans
 }
