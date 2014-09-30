@@ -192,6 +192,7 @@ The result can be seen  in Figure \ref{fig:png}.
 But of course it is all about the looks. For example, we can plot pathways from Wikipathways \cite{Pico2008} in R with:
 
 <<wp2366,include=false,width=6,height=6>>=
+library(xml)
 plotWikipathway("WP2366")
 @
 

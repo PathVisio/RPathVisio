@@ -1,6 +1,9 @@
 import("XMLRPC")
 import("rJava")
 import("BridgeDbR")
+import("png")
+import("XML")
+import("grid")
 export(
  pathvisioServer,
  createPathway,
