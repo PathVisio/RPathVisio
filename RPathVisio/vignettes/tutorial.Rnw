@@ -10,6 +10,7 @@
 \author{
   Christ Leemans
   Egon Willighagen
+  Anwesha Bohler	
 }
 \date{\today}
 
@@ -25,9 +26,7 @@ file.rename(derby,"Rn_Derby.bridge")
 
 \section{Introduction}
 
-This tutorial will talk you try the basic RPathVisio commands. RPathVisio is a package that allows
-you to interact with PathVisio \cite{VanIersel2008} from within R. It uses XML-RPC as communication layer in this process
-and requires a running PathVisio-RPC server.
+This tutorial will talk you try the basic RPathVisio commands. The RPathVisio package enables the use of the pathway analysis tool PathVisio \url{http://www.pathvisio.org} and the wealth of Wikipathways \url{http://wikipathways.org/index.php/WikiPathways} pathways in the R enironment. This package wraps xml.rpc() calls made to the PathVisioRPC Server\url{https://github.com/pennatula/PathVisioRPC}, which is an XML-RPC based implementation of PathVisio\cite{VanIersel2008}, into an R API that hides more of the technologies of XML-RPC. The package also sets a number of typical defaults and performs some argument validation in order to simplify usage and provide better feedback to the user.
 
 \section{Running the server}
 
