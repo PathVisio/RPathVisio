@@ -1,7 +1,8 @@
 import("XMLRPC")
 import("rJava")
 import("BridgeDbR")
-import("png")
+importFrom("RCurl", "base64Decode")
+importFrom("png", "readPNG")
 import("XML")
 import("grid")
 export(
