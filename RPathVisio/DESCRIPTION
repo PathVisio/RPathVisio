@@ -1,15 +1,16 @@
 Package: RPathVisio
 Type: Package
 Title: RPathVisio - code for using PathVisio from within R
-Version: 1.0.0
+Version: 0.99.1
 Date: 2012-11-27
 Author: Anwesha Bohler <anwesha.dutta@maastrichtuniversity.nl>, Egon Willighagen <egon.willighagen@gmail.com> and Christ Leemans <C.Leemans@student.maastrichtuniversity.nl>
 Maintainer: Anwesha Bohler <anwesha.dutta@maastrichtuniversity.nl>, Egon Willighagen <egon.willighagen@gmail.com>
-Depends: R (>= 2.0.0), XMLRPC, rJava, BridgeDbR
+Depends: R (>= 2.0.0), XMLRPC, rJava, BridgeDbR, RCurl
 Imports: png, grid, XML
 Description: Create and edit biological pathways, visualize data on pathways, perform pathway statistics, get a list of participating genes from a pathway using PathVisio.
+biocViews: Software, Pathways, Visualization
 License: AGPL-3
 LazyLoad: yes
-URL : https://github.com/pennatula/PathVisioRPC, https://github.com/BiGCAT-UM/RPathVisio
+URL: https://github.com/pennatula/PathVisioRPC, https://github.com/BiGCAT-UM/RPathVisio
 BugReports: https://github.com/BiGCAT-UM/RPathVisio/issues
 

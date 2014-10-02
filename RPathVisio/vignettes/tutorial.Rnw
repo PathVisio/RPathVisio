@@ -18,7 +18,7 @@
 \maketitle
 
 <<echo=FALSE, results=hide>>=
-library(bridgedbr)
+library(BridgeDbR)
 dataframe <- read.table("exampledata.txt",header=TRUE,sep="\t")
 derby <- getDatabase("Rattus norvegicus",locatio=getwd())
 file.rename(derby,"Rn_Derby.bridge")
@@ -33,7 +33,7 @@ This tutorial will talk you try the basic RPathVisio commands. The RPathVisio pa
 Running the server on the default port can be performed from within R:
 
 <<>>=
-library(pvxmlrpc)
+library(RPathVisio)
 port = pathvisioServer()
 cat(paste("Port:", port, "\n"))
 @
