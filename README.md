@@ -1,3 +1,9 @@
+PathVisioRPC is now published!
+
+Please cite:
+Bohler, Anwesha, et al. “Automatically visualise and analyse data on pathways using PathVisioRPC from any programming environment.” BMC bioinformatics 16.1 (2015): 267.
+
+
 R package for PathVisioRPC
 ===============================
 
