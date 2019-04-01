@@ -7,9 +7,9 @@ Bohler, Anwesha, et al. “Automatically visualise and analyse data on pathways 
 R package for PathVisioRPC
 ===============================
 
-The rPathVisio package enables the use of the pathway analysis tool PathVisio(http://www.pathvisio.org/) and the 
-wealth of Wikipathways(http://wikipathways.org/index.php/WikiPathways) pathways in the R enironment. This package
-wraps xml.rpc() calls made to the PathVisioRPC Server, which is an XML-RPC based implementation of PathVisio, into 
+The rPathVisio package enables the use of the pathway analysis tool [PathVisio](http://www.pathvisio.org/) and the 
+wealth of [WikiPathways](http://wikipathways.org/index.php/WikiPathways) pathways in the R enironment. This package
+wraps `xml.rpc()` calls made to the PathVisioRPC Server, which is an XML-RPC based implementation of PathVisio, into 
  an R API that hides more of the technologies of XML-RPC. The package also sets a number of typical defaults 
 and performs some argument validation in order to simplify usage and provide better feedback to the user.
 
@@ -34,3 +34,8 @@ BioConductor with:
 It also depends on the R package for BridgeDb, available from:
 
     https://github.com/BiGCAT-UM/bridgedb-r
+    
+And from BioConductor:
+
+    https://bioconductor.org/packages/release/bioc/html/BridgeDbR.html
+
